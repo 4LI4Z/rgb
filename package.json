@@ -1,0 +1,11 @@
+{
+  "name": "node_rgb_api",
+  "version": "0.0.0",
+  "description": "Node JS API for Controlling an RGB LED Stripe",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aliaz",
+  "license": "GPL-3.0"
+}
