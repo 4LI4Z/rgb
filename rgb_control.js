@@ -1,10 +1,9 @@
 'use strict';
-
-const function set ({}) = {
+var set = function (rgb) {
   //Do something
 };
-const function get () = {
-  //Do something
+var get = function () {
+  return 'Hello World';
 };
 
-module.exports = {set, get};
+module.exports = {set : set, get : get};
