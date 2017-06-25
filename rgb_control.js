@@ -14,8 +14,9 @@ var set = function(rgb) {
 
     exec('command', (error, stdout, stderr) => {
       if(!error) {
-        console.log('There was an Error using pigpio: stderr:' + stderr);
+        console.log(stdout);
       } else {
+        console.log('There was an Error using pigpio: stderr:' + stderr);
         console.log(error.message);
       }
     });
@@ -24,9 +25,11 @@ var set = function(rgb) {
 var get = function() {
   //pigs gdc *PORT* to get Intensity where 0 <= *VALUE* <= 255
   var level = {red: 0, green : 0, blue : 0};
+
   var commands = {red : 'pigs gdc '+ _red_port,
               green : 'pigs gdc '+ _green_port,
               blue : 'pigs gdc '+ _blue_port};
+
   exec(commands.red, (error, stdout, stderr) => {
     if(!error) {
       level.red = stdout;
