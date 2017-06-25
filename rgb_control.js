@@ -17,16 +17,17 @@ var set = function(rgb) {
   }
 }
 var get = function(callback) {
-  callback({red : getPinLevel(_red_pin, callback) ,
+  var rgb = {red : getPinLevel(_red_pin, callback) ,
           green : getPinLevel(_green_pin, callback) ,
           blue : getPinLevel(_blue_pin), callback});
+  callback(rgb);
 };
 
-var getPinLevel = function(pin, callback) {
+var getPinLevel = function(pin) {
 //pigs gdc *PORT* to get Intensity where 0 <= *VALUE* <= 255
   exec('pigs gdc ' + pin, (error, stdout, stderr) => {
     if (!error) {
-      callback(stdout);
+      return stdout;
     } else {
       console.log('There was an Error using pigpio: stderr:' + stderr);
       console.log(error.message);
